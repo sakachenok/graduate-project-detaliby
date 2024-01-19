@@ -16,4 +16,5 @@ public class DetaliPageXpath {
     public static final String BUTTON_ADD_TO_CART = "//button[@class='search-offer__basket']";
     public static final String BUTTON_CART = "//a[@href='/shop/basket.html']";
     public static final String TEXT_ITEM_IN_CART = "//p[@title='TRICO FX550']";
+    public static final String BUTTON_MORE_ITEMS = "//button[@class='search-spare__toggle-btn']";
 }

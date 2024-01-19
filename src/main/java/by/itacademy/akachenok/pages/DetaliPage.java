@@ -137,7 +137,7 @@ public class DetaliPage {
         WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(25));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_ADD_TO_CART)));
         clickButtonAddToCart();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_CART)));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_MORE_ITEMS)));
         clickButtonCart();
     }
 
