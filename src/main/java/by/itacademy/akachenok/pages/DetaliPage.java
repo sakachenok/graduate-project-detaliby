@@ -55,6 +55,10 @@ public class DetaliPage {
         return driver.findElement(By.xpath(DetaliPageXpath.ERROR_MESSAGE_INVALID_EMAIL_OR_PHONE_FORMAT)).getText();
     }
 
+    public void clickButtonAcceptCookies() {
+        driver.findElement(By.xpath(DetaliPageXpath.BUTTON_ACCEPT_COOKIES)).click();
+    }
+
     public void sendKeysInputSearchForm(String textForSearch) {
         driver.findElement(By.xpath(DetaliPageXpath.INPUT_SEARCH_FORM)).sendKeys(textForSearch);
     }
@@ -132,9 +136,12 @@ public class DetaliPage {
     }
 
     public void searchForTheItemAndAddItToTheCartAndOpenTheCart() {
+       WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(25));
+       //wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_ACCEPT_COOKIES)));
+       //clickButtonAcceptCookies();
         enterTextInSearchFormAndSearch(User.getTextForSearch());
+        clickButtonAcceptCookies();
         clickLinkSearchByNameResults();
-        WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(25));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_ADD_TO_CART)));
         clickButtonAddToCart();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_MORE_ITEMS)));
