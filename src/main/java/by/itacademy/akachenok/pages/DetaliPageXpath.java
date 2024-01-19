@@ -13,7 +13,7 @@ public class DetaliPageXpath {
     public static final String BUTTON_SEARCH = "//*[@class='search-form__submit-svg']";
     public static final String TEXT_SEARCH_RESULT_SEARCH_PAGE = "//h2[@class='search-by-name__title wt-h-2 wtm-h-3']";
     public static final String LINK_SEARCH_BY_NAME_RESULTS = "//a[@href='/search.html?article=FX550&brand=TRICO&withAnalogs=1']";
-    public static final String BUTTON_ADD_TO_CART = "/html/body/div[2]/main/div[2]/div/div/div[3]/div/div[2]/div[2]/div[3]/div/div[2]/div[1]/div[5]/button";
-    public static final String BUTTON_CART = "//*[@id=\"main_inner_wrapper\"]/div[3]/div/div[2]/div[2]/div[3]/div/div[2]/div[1]/div[5]/a";
-    public static final String TEXT_ITEM_IN_CART = "//*[@id=\"content_inner\"]/div/div/div[2]/div/div[2]/div/div/div/div[2]/div[1]/div[2]/div/p";
+    public static final String BUTTON_ADD_TO_CART = "//button[@class='search-offer__basket']";
+    public static final String BUTTON_CART = "//a[@href='/shop/basket.html']";
+    public static final String TEXT_ITEM_IN_CART = "//p[@title='TRICO FX550']";
 }
