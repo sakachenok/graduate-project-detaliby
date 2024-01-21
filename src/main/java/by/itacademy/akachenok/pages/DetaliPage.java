@@ -137,14 +137,12 @@ public class DetaliPage {
 
     public void searchForTheItemAndAddItToTheCartAndOpenTheCart() {
        WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(25));
-       //wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_ACCEPT_COOKIES)));
-       //clickButtonAcceptCookies();
         enterTextInSearchFormAndSearch(User.getTextForSearch());
-        clickButtonAcceptCookies();
+        //clickButtonAcceptCookies();
         clickLinkSearchByNameResults();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_MORE_ITEMS)));
         clickButtonAddToCart();
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_MORE_ITEMS)));
+        //wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_MORE_ITEMS)));
         clickButtonCart();
     }
 
