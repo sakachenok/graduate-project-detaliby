@@ -142,9 +142,9 @@ public class DetaliPage {
         enterTextInSearchFormAndSearch(User.getTextForSearch());
         clickButtonAcceptCookies();
         clickLinkSearchByNameResults();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_ADD_TO_CART)));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_ADD_TO_CART)));
         clickButtonAddToCart();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_MORE_ITEMS)));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_MORE_ITEMS)));
         clickButtonCart();
     }
 
