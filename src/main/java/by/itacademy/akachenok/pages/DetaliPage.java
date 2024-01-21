@@ -138,7 +138,7 @@ public class DetaliPage {
     public void searchForTheItemAndAddItToTheCartAndOpenTheCart() {
        WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(25));
         enterTextInSearchFormAndSearch(User.getTextForSearch());
-        //clickButtonAcceptCookies();
+        clickButtonAcceptCookies();
         clickLinkSearchByNameResults();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_MORE_ITEMS)));
         clickButtonAddToCart();
