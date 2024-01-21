@@ -142,7 +142,7 @@ public class DetaliPage {
         enterTextInSearchFormAndSearch(User.getTextForSearch());
         clickButtonAcceptCookies();
         clickLinkSearchByNameResults();
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_ADD_TO_CART)));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_MORE_ITEMS)));
         clickButtonAddToCart();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_MORE_ITEMS)));
         clickButtonCart();
