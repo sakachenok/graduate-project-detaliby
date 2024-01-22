@@ -1,6 +1,5 @@
 package by.itacademy.akachenok.pages;
 
-import by.itacademy.akachenok.domain.User;
 import by.itacademy.akachenok.driver.SingletonWebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +10,7 @@ import java.time.Duration;
 
 public class DetaliPage {
     private WebDriver driver;
+    WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20));
 
     public DetaliPage() {
         this.driver = SingletonWebDriver.getDriver();
@@ -18,7 +18,6 @@ public class DetaliPage {
 
     public void clickButtonEnterMainPage() {
         driver.findElement(By.xpath(DetaliPageXpath.BUTTON_ENTER_MAIN_PAGE)).click();
-        WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(3));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_ENTER_AUTH_FORM)));
     }
 
@@ -44,13 +43,11 @@ public class DetaliPage {
 
 
     public String getTextErrorMessageWrongCredentials() {
-        WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(DetaliPageXpath.ERROR_MESSAGE_WRONG_CREDENTIALS)));
         return driver.findElement(By.xpath(DetaliPageXpath.ERROR_MESSAGE_WRONG_CREDENTIALS)).getText();
     }
 
     public String getTextErrorMessageInvalidEmailOrPhoneFormat() {
-        WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(DetaliPageXpath.ERROR_MESSAGE_INVALID_EMAIL_OR_PHONE_FORMAT)));
         return driver.findElement(By.xpath(DetaliPageXpath.ERROR_MESSAGE_INVALID_EMAIL_OR_PHONE_FORMAT)).getText();
     }
@@ -63,9 +60,12 @@ public class DetaliPage {
         driver.findElement(By.xpath(DetaliPageXpath.INPUT_SEARCH_FORM)).sendKeys(textForSearch);
     }
 
+    public void clickCheckboxWithAnalogs() {
+        driver.findElement(By.xpath(DetaliPageXpath.CHECKBOX_WITH_ANALOGS)).click();
+    }
+
     public void clickButtonSearch() {
         driver.findElement(By.xpath(DetaliPageXpath.BUTTON_SEARCH)).click();
-        WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(DetaliPageXpath.TEXT_SEARCH_RESULT_SEARCH_PAGE)));
     }
 
@@ -75,7 +75,6 @@ public class DetaliPage {
 
     public void clickLinkSearchByNameResults() {
         driver.findElement(By.xpath(DetaliPageXpath.LINK_SEARCH_BY_NAME_RESULTS)).click();
-        WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_ADD_TO_CART)));
     }
 
@@ -88,62 +87,8 @@ public class DetaliPage {
     }
 
     public String getTextItemInCart() {
-        WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(DetaliPageXpath.TEXT_ITEM_IN_CART)));
         return driver.findElement(By.xpath(DetaliPageXpath.TEXT_ITEM_IN_CART)).getText();
-    }
-
-    public void openLoginFormByUsernameFillAndSubmit(String username, String password) {
-        clickButtonEnterMainPage();
-        sendKeysInputLogin(username);
-        sendKeysInputPassword(password);
-        clickButtonEnterAuthForm();
-    }
-
-    public void openLoginFormByEmailFillAndSubmit(String email, String password) {
-        clickButtonEnterMainPage();
-        clickRadioButtonEmail();
-        sendKeysInputLogin(email);
-        sendKeysInputPassword(password);
-        clickButtonEnterAuthForm();
-    }
-
-    public void openLoginFormByEmailAndFill(String email, String password) {
-        clickButtonEnterMainPage();
-        clickRadioButtonEmail();
-        sendKeysInputLogin(email);
-        sendKeysInputPassword(password);
-    }
-
-    public void openLoginFormByPhoneFillAndSubmit(String phone, String password) {
-        clickButtonEnterMainPage();
-        clickRadioButtonPhone();
-        sendKeysInputLogin(phone);
-        sendKeysInputPassword(password);
-        clickButtonEnterAuthForm();
-    }
-
-    public void openLoginFormByPhoneAndFill(String phone, String password) {
-        clickButtonEnterMainPage();
-        clickRadioButtonPhone();
-        sendKeysInputLogin(phone);
-        sendKeysInputPassword(password);
-    }
-
-    public void enterTextInSearchFormAndSearch(String textForSearch) {
-        sendKeysInputSearchForm(textForSearch);
-        clickButtonSearch();
-    }
-
-    public void searchForTheItemAndAddItToTheCartAndOpenTheCart() {
-       WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(25));
-        enterTextInSearchFormAndSearch(User.getTextForSearch());
-        clickButtonAcceptCookies();
-        clickLinkSearchByNameResults();
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_MORE_ITEMS)));
-        clickButtonAddToCart();
-        //wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(DetaliPageXpath.BUTTON_MORE_ITEMS)));
-        clickButtonCart();
     }
 
 }
