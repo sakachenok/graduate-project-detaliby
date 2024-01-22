@@ -17,6 +17,7 @@ public class DetaliPageXpath {
     public static final String BUTTON_ADD_TO_CART = "//button[@class='search-offer__basket']";
     public static final String BUTTON_CART = "//a[@href='/shop/basket.html']";
     public static final String TEXT_ITEM_IN_CART = "//p[@title='TRICO FX550']";
-    public static final String BUTTON_MORE_ITEMS = "//button[@class='search-spare__toggle-btn']";
+    //public static final String BUTTON_MORE_ITEMS = "//button[@class='search-spare__toggle-btn']";
+    public static final String BUTTON_SEARCH_FILTERS_RESET = "//button[@class='search-filters__reset-btn']";
     public static final String BUTTON_ACCEPT_COOKIES = "//button[@class='cookies-window__btn cookies-window__btn_accept']";
 }
