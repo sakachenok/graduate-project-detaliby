@@ -1,5 +1,6 @@
 package by.itacademy.akachenok.api;
 
+import by.itacademy.akachenok.pages.DetaliApi;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -9,50 +10,34 @@ public class DetaliApiTest {
 
     @Test
     public void testLoginWithUsernameWrongCredentials() {
-        String bodyAsString = "{\"login\":\"test@test.com\",\"password\":\"test\"}";
-
         given().header("Content-Type", "text/plain;charset=UTF-8")
-                .body(bodyAsString)
-                .when().post("https://detali.by/api/v2/customer/login/")
-                .then().assertThat().statusCode(401)
-                .body("errorMessage", equalTo("Логин или пароль введены неверно"))
-                .log().all();
+                .body(DetaliApi.bodyLoginWithUsernameWrongCredentials)
+                .when().post(DetaliApi.url)
+                .then().statusCode(401).body("errorMessage", equalTo("Логин или пароль введены неверно"));
     }
 
     @Test
     public void testLoginWithUsernameEmptyFields() {
-        String bodyAsString = "{\"login\":\"\",\"password\":\"\"}";
-
         given().header("Content-Type", "text/plain;charset=UTF-8")
-                .body(bodyAsString)
-                .when().post("https://detali.by/api/v2/customer/login/")
-                .then().assertThat().statusCode(401)
-                .body("errorMessage", equalTo("Указанный Вами логин в базе данных не найден."))
-                .log().all();
+                .body(DetaliApi.bodyLoginWithUsernameEmptyFields)
+                .when().post(DetaliApi.url)
+                .then().statusCode(401).body("errorMessage", equalTo("Указанный Вами логин в базе данных не найден."));
     }
 
     @Test
     public void testLoginWithEmailWrongCredentials() {
-        String bodyAsString = "{\"email\":\"test@test.com\",\"password\":\"123\"}";
-
         given().header("Content-Type", "text/plain;charset=UTF-8")
-                .body(bodyAsString)
-                .when().post("https://detali.by/api/v2/customer/login/")
-                .then().assertThat().statusCode(401)
-                .body("errorMessage", equalTo("Указанный Вами email в базе данных не найден."))
-                .log().all();
+                .body(DetaliApi.bodyLoginWithEmailWrongCredentials)
+                .when().post(DetaliApi.url)
+                .then().statusCode(401).body("errorMessage", equalTo("Указанный Вами email в базе данных не найден."));
     }
 
     @Test
     public void testLoginWithPhoneWrongCredentials() {
-        String bodyAsString = "{\"phone\":\"+375(22)222-22-22\",\"password\":\"1234556\"}";
-
         given().header("Content-Type", "text/plain;charset=UTF-8")
-                .body(bodyAsString)
-                .when().post("https://detali.by/api/v2/customer/login/")
-                .then().assertThat().statusCode(401)
-                .body("errorMessage", equalTo("Указанный Вами телефон в базе данных не найден."))
-                .log().all();
+                .body(DetaliApi.bodyLoginWithPhoneWrongCredentials)
+                .when().post(DetaliApi.url)
+                .then().statusCode(401).body("errorMessage", equalTo("Указанный Вами телефон в базе данных не найден."));
     }
 
 }
