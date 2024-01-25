@@ -17,5 +17,4 @@ public class DetaliApi {
                 return header;
     }
 
-
 }

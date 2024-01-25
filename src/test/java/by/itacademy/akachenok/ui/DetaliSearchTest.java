@@ -17,7 +17,7 @@ public class DetaliSearchTest extends BaseTest{
     }
 
     @Test
-    public void testAddTheItemIntoTheCart() {
+    public void testSearchAndAddTheItemIntoTheCart() {
         detaliSearchStep.searchForTheItemAndAddItToTheCartAndOpenTheCart();
         Assertions.assertEquals("TRICO FX550", detaliSearch.getTextItemInCart());
     }

@@ -13,7 +13,6 @@ public class DetaliLoginStep {
 
     WebDriver driver;
     DetaliLogin detaliLogin;
-    WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(10));
 
     public DetaliLoginStep() {
         this.driver = SingletonWebDriver.getDriver();
@@ -56,7 +55,5 @@ public class DetaliLoginStep {
         detaliLogin.sendKeysInputLogin(phone);
         detaliLogin.sendKeysInputPassword(password);
     }
-
-
 
 }

@@ -3,6 +3,8 @@ package by.itacademy.akachenok.pages;
 import by.itacademy.akachenok.driver.SingletonWebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -10,7 +12,7 @@ import java.time.Duration;
 
 public class DetaliSearch {
     private WebDriver driver;
-    WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(50));
+    WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(25));
 
     public DetaliSearch() {
         this.driver = SingletonWebDriver.getDriver();
@@ -53,6 +55,11 @@ public class DetaliSearch {
     public String getTextItemInCart() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(DetaliSearchXpath.TEXT_ITEM_IN_CART)));
         return driver.findElement(By.xpath(DetaliSearchXpath.TEXT_ITEM_IN_CART)).getText();
+    }
+
+    public void scrollToButtonMoreItems() {
+        Actions action = new Actions(driver);
+        action.scrollToElement(driver.findElement(By.xpath(DetaliSearchXpath.BUTTON_MORE_ITEMS))).perform();
     }
 
 }

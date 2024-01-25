@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class DetaliLogin {
     private WebDriver driver;
-    WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(20));
+    WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(10));
 
     public DetaliLogin() {
         this.driver = SingletonWebDriver.getDriver();
