@@ -2,6 +2,8 @@ package by.itacademy.akachenok.pages;
 
 import by.itacademy.akachenok.domain.User;
 import by.itacademy.akachenok.driver.SingletonWebDriver;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,10 +15,12 @@ public class DetaliLoginStep {
 
     WebDriver driver;
     DetaliLogin detaliLogin;
+    private static final Logger LOGGER = LogManager.getLogger();
 
     public DetaliLoginStep() {
         this.driver = SingletonWebDriver.getDriver();
         this.detaliLogin = new DetaliLogin();
+        LOGGER.info("WebDriver is created in DetaliLoginStep constructor");
     }
 
     public void openLoginFormByUsernameFillAndSubmit (String username, String password){
