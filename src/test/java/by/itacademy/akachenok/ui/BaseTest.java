@@ -21,7 +21,7 @@ public class BaseTest {
     @AfterEach
     public void baseFinish() {
         SingletonWebDriver.quitDriver();
-        LOGGER.info("Quit driver");
+        LOGGER.info("WebDriver is closed");
     }
 
 }
