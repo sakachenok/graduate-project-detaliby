@@ -26,14 +26,6 @@ public class DetaliLoginStep {
         detaliLogin.clickButtonEnterAuthForm();
     }
 
-    public void openLoginFormByEmailFillAndSubmit(String email, String password) {
-        detaliLogin.clickButtonEnterMainPage();
-        detaliLogin.clickRadioButtonEmail();
-        detaliLogin.sendKeysInputLogin(email);
-        detaliLogin.sendKeysInputPassword(password);
-        detaliLogin.clickButtonEnterAuthForm();
-    }
-
     public void openLoginFormByEmailAndFill(String email, String password) {
         detaliLogin.clickButtonEnterMainPage();
         detaliLogin.clickRadioButtonEmail();
@@ -41,11 +33,8 @@ public class DetaliLoginStep {
         detaliLogin.sendKeysInputPassword(password);
     }
 
-    public void openLoginFormByPhoneFillAndSubmit(String phone, String password) {
-        detaliLogin.clickButtonEnterMainPage();
-        detaliLogin.clickRadioButtonPhone();
-        detaliLogin.sendKeysInputLogin(phone);
-        detaliLogin.sendKeysInputPassword(password);
+    public void openLoginFormByEmailFillAndSubmit(String email, String password) {
+        openLoginFormByEmailAndFill(email, password);
         detaliLogin.clickButtonEnterAuthForm();
     }
 
@@ -54,6 +43,11 @@ public class DetaliLoginStep {
         detaliLogin.clickRadioButtonPhone();
         detaliLogin.sendKeysInputLogin(phone);
         detaliLogin.sendKeysInputPassword(password);
+    }
+
+    public void openLoginFormByPhoneFillAndSubmit(String phone, String password) {
+        openLoginFormByPhoneAndFill(phone, password);
+        detaliLogin.clickButtonEnterAuthForm();
     }
 
 }
