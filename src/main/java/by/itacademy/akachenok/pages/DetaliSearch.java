@@ -14,12 +14,8 @@ import java.time.Duration;
 
 public class DetaliSearch {
     private static final Logger LOGGER = LogManager.getLogger();
-
     private WebDriver driver;
     WebDriverWait wait = new WebDriverWait(SingletonWebDriver.getDriver(), Duration.ofSeconds(25));
-
-
-
     public DetaliSearch() {
         this.driver = SingletonWebDriver.getDriver();
     }
